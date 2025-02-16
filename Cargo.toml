@@ -1,0 +1,49 @@
+[package]
+name = "websocket-rs"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+criterion = { version = "0.5.1", features = ["async_tokio"] }
+tokio = { version = "1.0", features = ["full"] }
+tokio-tungstenite = { version = "0.20", features = ["native-tls"] }    # WebSocket implementation
+url = "2.5.4"
+tokio-rustls = "0.24.0"
+rustls = "0.21.0"
+rustls-pemfile = "1.0"
+tungstenite = "0.20.0"          # Low-level WebSocket
+serde = { version = "1.0", features = ["derive"] } # Serialization
+serde_json = "1.0"              # JSON handling
+futures-util = "0.3.0"          # Async streams
+uuid = { version = "1.0", features = ["v4"] } # Client IDs
+tracing = "0.1.0"               # Logging
+tracing-subscriber = "0.3.0"
+thiserror = "1.0"
+env_logger = "0.10.0"
+log = "0.4.0"
+prometheus = "0.13"
+flate2 = "1.0"
+governor = "0.5"
+nonzero_ext = "0.3"  # For safer nonzero values
+axum = "0.6"
+axum-server = { version = "0.6", features = ["tls-rustls"] }
+config = "0.13"
+dashmap = { version = "5.4", features = ["rayon"] }
+dotenv = "0.15"
+anyhow = "1.0"
+tower = { version = "0.5.2", features = ["util"] }
+hyper = "1.1"
+webpki-roots = "0.26.8"
+
+[lib]
+name = "websocket_rs"
+path = "src/lib.rs"
+
+[[bin]]
+name = "websocket-rs"
+path = "src/main.rs"
+
+[[bench]]
+name = "benchmark"
+path = "benches/benchmark.rs"
+harness = false
