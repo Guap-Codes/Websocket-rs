@@ -20,12 +20,11 @@ A high-performance, scalable WebSocket server designed for secure real-time comm
    ```sh
    git clone https://github.com/Guap-Codes/websocket-rs.git
 
-   cd websocket-rs
-```
+   cd websocket-rs```
+   
 2. Install dependencies:
-   ```sh
-    cargo build --release
-  ```
+   ```
+   sh cargo build --release ```
 
 ### Configuration
 
@@ -69,13 +68,14 @@ By default, the server listens on 0.0.0.0:PORT.
     wscat -c wss://localhost:8080 --ca certs/cert.pem
     ```
 - Example messages to send after connection:
-    **Authentication**
+  
+    **Authentication**   
     {"type":"Auth","token":"your_access_token"}
 
-    **Text message**
+    **Text message**  
     {"type":"Text","content":"Hello World","compressed":false}
 
-    **Command**
+    **Command**  
     {"type":"Command","action":"ping","parameters":{}}    
 
     
